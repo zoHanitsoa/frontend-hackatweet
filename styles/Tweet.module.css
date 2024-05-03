@@ -61,3 +61,8 @@
     border-radius: 10px;
     border: none;
   }
+
+  .twitterButton:hover {
+    cursor: pointer;
+    background-color: blue;
+  }

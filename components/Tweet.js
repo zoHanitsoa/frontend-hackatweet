@@ -8,11 +8,56 @@
 import styles from '../styles/Tweet.module.css';
 import React from "react";
 import {useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function Tweet(props) {
 
+		// reducer user
+	const user = useSelector((state) => state.user.value)
+	console.log('user',user)
+
 
 	const [count, setCount] = useState(0);
+	const [ tweetText, setTweetText ] = useState('');
+
+
+// Gestion de l'affichage de l'input pour avoir le compteur dynamique
+	function handleInputTweet(e) {
+		console.log('manu')
+		setCount(e.target.value.length)
+		setTweetText(e.target.value)
+
+	}
+
+	// Enregistrement du tweet de l'utilisateur dans la base de données
+	function handleTwitterClick() {
+		if (count > 0) {
+			fetch(`http://localhost:3000/tweets/newTweet`,{
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({  tweetContent : tweetText , token : 'mEndfPqSDZmEzLLT4WMRUhY8Q1c4gpdh'}),
+			})
+			.then(response => response.json())
+			.then(data =>  {
+				console.log(data)})
+				setTweetText('')
+				setCount(0)
+			}}
+
+			
+
+
+	// 				if (props.isBookmarked) {
+	// 					dispatch(removeBookmark(props));
+	// 				} else {
+	// 					dispatch(addBookmark(props));
+	// 				}
+	// 			}
+	// 		};
+
+	// 	}
+
+	// }
 
 
 // 	const dispatch = useDispatch();
@@ -75,14 +120,16 @@ function Tweet(props) {
 				</div>
 
 				<div className={styles.tweetInputSection}>
-					<input type="text" className={styles.tweetInput} placeholder="What's up ?" name="name" required minLength="1" maxLength="280" size="10" onChange={e => setCount(e.target.value.length)} />
+					<input type="text" className={styles.tweetInput} placeholder="What's up ?" name="name" required minLength="1" maxLength="280" size="10"  onChange={(e) => handleInputTweet(e)} value={tweetText}/>
+					
+				
 				</div>
 				
 
 
 				<div className={styles.buttonSection}>
 					<p className={styles.counter}>{count}/280</p>
-					<button className= {styles.twitterButton} onClick={console.log('logout')}>Twitter</button>
+					<button className= {styles.twitterButton} onClick={() => handleTwitterClick()}>Twitter</button>
 				</div>
 
 			</div>
