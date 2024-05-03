@@ -1,0 +1,63 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: */
+    min-height: 30%;
+    height : 35%;
+    width : 100%;
+    /* padding: 4rem 0; */
+    /* background-color: rgb(23, 19, 19); */
+    border-bottom: 0.5px solid white;
+  }
+
+  .home {
+    color : white;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: left;
+    margin-left: 10px;
+  }
+
+
+  .tweetInputSection {
+    text-align : center;
+    /* align-items: right; */
+  }
+
+  .tweetInput {
+    width : 80%;
+    background-color: rgb(26, 24, 23);
+    color : white;
+    border-bottom: 0.5px solid white;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding-bottom: 10px;
+    
+  }
+
+  .tweetInput:focus {
+    outline: none;
+}
+
+  .buttonSection {
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    color : white;
+    
+   
+  }
+
+
+  .twitterButton {
+    color : white;
+    background-color: deepskyblue;
+    margin: 20px;
+    padding : 5px 20px;
+    border-radius: 10px;
+    border: none;
+  }
