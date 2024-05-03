@@ -7,7 +7,7 @@ import Home from "./Home";
 
 function Login() {
   const user = useSelector((state) => state.user.value);
-
+  console.log("user connected ?", user.isConnected);
   return user.isConnected ? (
     <Home />
   ) : (

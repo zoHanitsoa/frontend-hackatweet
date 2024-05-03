@@ -3,12 +3,19 @@ import Image from "next/image";
 import React from "react";
 import Tweet from "./Tweet";
 import Trends from "./Trends";
-import { useSelector } from "react-redux";
+import { logout } from "../reducers/user";
+import { useSelector, useDispatch } from "react-redux";
+import Login from "./Login";
 
 function Home() {
   const user = useSelector((state) => state.user.value);
+  const dispatch = useDispatch();
 
-  return (
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+  console.log("avant", user.isConnected);
+  return user.isConnected ? (
     <div>
       <main className={styles.main}>
         <div className={styles.homeLeft}>
@@ -24,9 +31,10 @@ function Home() {
 
           <div className={styles.bottomHomeSection}>
             <div className={styles.userInfo}>
-              {user.firstname} {user.username}
+              <p> {user.firstname}</p>
+              <p>{user.username}</p>
             </div>
-            <button className={styles.logout} onClick={console.log("logout")}>
+            <button className={styles.logout} onClick={() => handleLogout()}>
               Logout
             </button>
           </div>
@@ -45,6 +53,8 @@ function Home() {
         </div>
       </main>
     </div>
+  ) : (
+    <Login />
   );
 }
 
