@@ -1,0 +1,24 @@
+.signup,
+.signin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.signup input,
+.signin input {
+  margin: 10px;
+  width: 300px;
+  padding: 0 10px;
+  color: white;
+  height: 40px;
+  cursor: pointer;
+}
+.signup button,
+.signin button {
+  border-radius: 20px;
+  width: 150px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
