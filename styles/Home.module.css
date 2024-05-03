@@ -6,7 +6,8 @@
   min-height: 100vh;
   height : 100vh;
   /* padding: 4rem 0; */
-  background-color: rgb(26, 24, 23);
+  background-color: rgba(29,35,44,255);
+  
 }
 
 .title {
@@ -42,6 +43,11 @@
   width : 45%;
   height: 100vh;
   border-right: solid 0.5px white;
+}
+
+
+.lastTweetsSection {
+  height : 65%;
 }
 
 .trendsSection {

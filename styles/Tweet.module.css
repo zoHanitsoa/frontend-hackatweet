@@ -27,7 +27,7 @@
 
   .tweetInput {
     width : 80%;
-    background-color: rgb(26, 24, 23);
+    background-color: rgba(29,35,44,255);
     color : white;
     border-bottom: 0.5px solid white;
     border-top: none;

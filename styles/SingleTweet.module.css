@@ -1,0 +1,47 @@
+.singleTweet {
+
+    height : 120px;
+    border-bottom: solid 0.5px white;
+}
+
+.userInfos {
+    margin-top : 20px;
+    display : flex;
+    align-items: center;
+}
+
+.username {
+    color:darkgray;
+margin: 0 5px;
+
+}
+
+.firstname {
+    color : white;
+    font-weight: 700;
+margin: 0 5px;
+}
+
+.date {
+
+}
+
+.imageContainer {
+    margin-left : 10px;
+}
+
+.image {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 100px;
+}
+
+.tweetContent {
+    color : white;
+    margin-left : 20px;
+}
+
+.actions {
+    margin-left : 20px;
+    margin-top : 10px;
+}

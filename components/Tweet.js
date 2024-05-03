@@ -1,20 +1,17 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { addBookmark, removeBookmark } from '../reducers/bookmarks';
-// import {handleVisible} from '../reducers/hiddenArticles';
-// import Image from 'next/image';
-// import styles from '../styles/Article.module.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faBookmark , faEyeSlash} from '@fortawesome/free-solid-svg-icons';
+
 import styles from '../styles/Tweet.module.css';
 import React from "react";
 import {useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector , useDispatch } from 'react-redux';
+import { addTweet } from '../reducers/tweets';
 
 function Tweet(props) {
 
 		// reducer user
 	const user = useSelector((state) => state.user.value)
-	console.log('user',user)
+	// console.log('user',user)
+	const dispatch = useDispatch();
+	
 
 
 	const [count, setCount] = useState(0);
@@ -23,7 +20,7 @@ function Tweet(props) {
 
 // Gestion de l'affichage de l'input pour avoir le compteur dynamique
 	function handleInputTweet(e) {
-		console.log('manu')
+		// console.log('manu')
 		setCount(e.target.value.length)
 		setTweetText(e.target.value)
 
@@ -35,13 +32,14 @@ function Tweet(props) {
 			fetch(`http://localhost:3000/tweets/newTweet`,{
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({  tweetContent : tweetText , token : 'mEndfPqSDZmEzLLT4WMRUhY8Q1c4gpdh'}),
+				body: JSON.stringify({  tweetContent : tweetText , token : user.token}),
 			})
 			.then(response => response.json())
 			.then(data =>  {
 				console.log(data)})
 				setTweetText('')
 				setCount(0)
+				dispatch(addTweet())
 			}}
 
 			

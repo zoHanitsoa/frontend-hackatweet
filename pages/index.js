@@ -2,7 +2,7 @@ import Login from "../components/Login";
 import Home from "../components/Home";
 
 function Index() {
-  return <Home />;
+  return <Login />;
 }
 
 export default Index;
