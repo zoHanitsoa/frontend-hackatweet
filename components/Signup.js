@@ -27,7 +27,7 @@ function Signup() {
           dispatch(
             login({
               username: signUpUsername,
-              firstname: firstname,
+              firstname: data.firstname,
               token: data.token,
               isConnected: data.result,
             })

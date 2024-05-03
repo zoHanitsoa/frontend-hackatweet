@@ -26,7 +26,7 @@ function Signin() {
               username: signInUsername,
               firstname: data.firstname,
               token: data.token,
-              isConnected: data.result,
+              isConnected: true,
             })
           );
           setResult(data.token);
@@ -58,7 +58,7 @@ function Signin() {
       <button id="Sign in" onClick={() => handleSignIn()}>
         Sign in
       </button>
-      <div>{result}</div>
+      {/* <div>{result}</div> */}
     </div>
   );
 }
