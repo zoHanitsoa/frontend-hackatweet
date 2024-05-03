@@ -2,7 +2,16 @@ import styles from '../styles/LastTweets.module.css';
 import React from "react";
 
 
-function Trends(props) {
+function LastTweets(props) {
+
+
+
+	
+	fetch(`http://localhost:3000/tweets`)
+	.then(response => response.json())
+	.then(data => {
+		console.log(data)
+	})
 
 
 	return (
@@ -29,4 +38,4 @@ function Trends(props) {
 	);
 }
 
-export default Trends;
+export default LastTweets;

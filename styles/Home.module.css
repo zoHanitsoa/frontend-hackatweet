@@ -5,7 +5,7 @@
   align-items: center;
   min-height: 100vh;
   height : 100vh;
-  padding: 4rem 0;
+  /* padding: 4rem 0; */
   background-color: rgb(26, 24, 23);
 }
 
@@ -28,7 +28,7 @@
 
 .homeLeft {
   width : 25%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

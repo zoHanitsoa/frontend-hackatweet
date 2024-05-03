@@ -2,7 +2,9 @@ import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 import React from 'react';
 import Tweet from './Tweet';
+import LastTweets from './LastTweets';
 import Trends from './Trends';
+import { useSelector } from 'react-redux';
 
 function Home() {
 
@@ -28,6 +30,7 @@ function Home() {
             <Tweet/>
 
                 <div className={styles.lastTweetsSection}>
+                  <LastTweets/>
                     <p>last tweets</p>
                 </div>
           

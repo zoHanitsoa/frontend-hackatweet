@@ -10,10 +10,11 @@
   margin: 10px;
   width: 300px;
   padding: 0 10px;
-  color: white;
+  color: black;
   height: 40px;
   cursor: pointer;
 }
+
 .signup button,
 .signin button {
   border-radius: 20px;
