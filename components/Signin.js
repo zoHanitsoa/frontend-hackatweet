@@ -1,7 +1,10 @@
 import styles from "../styles/Signup.module.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login, logout } from "../reducers/user";
 
-function Signup() {
+function Signin() {
+  const dispatch = useDispatch();
   const [signInUsername, setSignInUsername] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
   const [result, setResult] = useState("");
@@ -17,11 +20,15 @@ function Signup() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(signInUsername);
-        console.log(data.token);
         if (data.result) {
-          // dispatch(login({ username: signInUsername, token: data.token }));
+          dispatch(
+            login({
+              username: signInUsername,
+              firstname: data.firstname,
+              token: data.token,
+              isConnected: data.result,
+            })
+          );
           setResult(data.token);
         } else {
           setResult("User non trouvé!");
@@ -56,4 +63,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Signin;

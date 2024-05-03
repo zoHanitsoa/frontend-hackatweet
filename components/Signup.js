@@ -1,7 +1,11 @@
 import styles from "../styles/Signup.module.css";
 import { useState } from "react";
+import { login, logout } from "../reducers/user";
+import { useDispatch } from "react-redux";
 
 function Signup() {
+  const dispatch = useDispatch();
+
   const [firstname, setFirstname] = useState("");
   const [signUpUsername, setSignUpUsername] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
@@ -20,14 +24,23 @@ function Signup() {
       .then((response) => response.json())
       .then((data) => {
         if (data.result) {
-          // dispatch(login({ username: signUpUsername, token: data.token }));
+          dispatch(
+            login({
+              username: signUpUsername,
+              firstname: firstname,
+              token: data.token,
+              isConnected: data.result,
+            })
+          );
           setSignUpUsername("");
           setSignUpPassword("");
+          setFirstname("");
           console.log(data.result);
           setResult("user enregistré!");
         }
       });
   };
+
   return (
     <div className={styles.signup}>
       <h2>Create your Hackatweet account</h2>
